@@ -1,0 +1,62 @@
+<p>
+
+</p>
+<div class="container">
+
+<div class="row">
+  <div class="col-md-6 col-sm-6">
+    <label>Exit Condition</label>
+    <div>
+      <label>Bank Nifty Upper Threshold</label>
+      <input type="text" [(ngModel)]="bankNiftyUpperThreshHold">
+    </div>
+    <div>
+      <label>Bank Nifty Lower Threshold</label>
+      <input type="text" [(ngModel)]="bankNiftyLowerThreshHold" >
+    </div>
+    <div>
+        <label>Option total upper Threshold (MAX Loss)</label>
+        <input type="text" [(ngModel)]="optionTotalUpper" >
+    </div>
+    <div>
+        <label>Option total Lower Threshold (Max Profit)</label>
+        <input type="text" [(ngModel)]="optionTotalLower" >
+    </div>
+    <div>
+        <label>ExitIfCallOptionReaches</label>
+        <input type="text" [(ngModel)]="exitAtCallOption" >
+    </div>
+    <div>
+        <label>ExitIfPutOptionReaches</label>
+        <input type="text" [(ngModel)]="exitAtPutOption" >
+    </div>
+    <div>
+        <label>Testing Mode ?</label>
+        <input type="checkbox" [(ngModel)]="testMode" >
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6">
+    <label>Exit Action</label>
+    <div>
+        <label>Call Option</label>
+        <input type="text" [(ngModel)]="callOptionSymbol">
+        <label>Qty</label>
+        <input type="text" [(ngModel)]="callOptionQty">
+    </div>
+    <div>
+        <label>Put Option</label>
+        <input type="text" [(ngModel)]="putOptionSymbol" >
+        <label>Qty</label>
+        <input type="text" [(ngModel)]="putOptionQty">
+    </div>
+    <div>
+        <label>Exit Action Enabled ?</label>
+        <input type="checkbox" [(ngModel)]="exitActionEnabled" >
+    </div>
+  </div>
+  <div class="col-md-12" style="text-align: center; margin-top: 20px;">
+      <button  (click) = "setExitCond()">Set Exit Condition</button>
+    </div>
+</div>
+</div>
+

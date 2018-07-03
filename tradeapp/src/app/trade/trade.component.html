@@ -1,0 +1,50 @@
+<p><label *ngIf="loggedIn"> Welcome {{userInfo.data.user_shortname}}</label></p>
+
+<div>
+    <button class="btn btn-primary" id="bankNiftyDataBtn" (click)="GetBankNiftyData()">Get Bank Nifty  Data</button>
+        {{bankNiftyLtpPrice}} 
+    <span style="float:right;"><input type="checkbox" [(ngModel)]="autoRefreshValue" (change)="autoRefreshClicked()"> AutoRefresh </span>
+     
+</div>
+<p></p>
+<div class="container">
+
+
+    <form (ngSubmit) = "onSubmit(f)" #f="ngForm">
+        <div class="row">
+        <div class="col-md-6 col-sm-6">
+            Call Options
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let callOption of callOptionData">
+                        <input type="radio" name="callOption" [value]="callOption.instrumentName" ngModel>
+                        {{callOption.referenceValue}} - {{callOption.ltpPrice}}
+                       
+                </li>
+                <li><label>Quantity:</label><input name="callOptionQty" type="text" [ngModel]="defaultQty"></li>
+             </ul>
+            <div><h3><label class="label label-default">{{bankNiftyPosition.callOption}}</label>
+                <label class="label label-primary">{{bankNiftyPosition.callOptionLtp}}</label></h3></div>
+        </div>
+        <div class="col-md-6 col-sm-6">Put options
+                <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let putOption of putOptionData">
+                                <input type="radio" name="putOption" [value]="putOption.instrumentName" ngModel>
+                                {{putOption.referenceValue}} - {{putOption.ltpPrice}}
+                                
+                        </li>
+                        <li list-group-item><label>Quantity:</label><input name="putOptionQty" type="text" [ngModel]="defaultQty"></li>
+                      
+                    </ul>
+                    <div><h3><label class="label label-default">{{bankNiftyPosition.putOption}}</label>
+                        <label class="label label-primary">{{bankNiftyPosition.putOptionLtp}}</label></h3></div>
+         </div> 
+        <div class="col-md-12 col-sm-12" style="text-align: center;">
+                <h3><label class="label label-success">{{bankNiftyPosition.totalOptionLtp}}</label></h3>
+        </div>             
+    </div>
+    <div class="col-md-12 col-sms-12">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
+</div>
+
